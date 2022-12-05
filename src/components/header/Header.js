@@ -3,9 +3,10 @@ import "./header.css";
 import { Link } from "react-router-dom";
 import { AppContext } from "../../context/applicationContext";
 const Header = (props) => {
-  const appContext = useContext(AppContext);
+  const appContext = useContext(AppContext); //namespace it by using the useContext hook
 
   const logout = () => {
+    //this calls the logout function from appContext which removes the user data from cookies 
     appContext.logout();
   };
 

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./signup.css";
 import toast from "react-hot-toast";
 import { Form, Input, Button, Row, Col } from "antd";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import {
   NAME_MIN_LENGTH,
   NAME_MAX_LENGTH,
@@ -124,7 +124,7 @@ const validatePassword = (password) => {
 };
 
 const Signup = () => {
-  let navigate = useNavigate();
+  let navigate = useNavigate();  //useNavigate hook which helps us to re-direct to the respective route
 
   const [name, setName] = useState({ value: "" });
   const [username, setUsername] = useState({ value: "" });
@@ -141,9 +141,11 @@ const Signup = () => {
     );
 
     if (apiResponse) {
-      navigate("/login");
+     
+      navigate("/login"); //redirection to the login page upon successfull login by using useNavigate hook
       toast("Signup successful. Please login to continue.");
     } else {
+      //if the sign up is not successfull , return a toast back
       toast("Invalid sign up request. Username or email already exists.");
     }
   };

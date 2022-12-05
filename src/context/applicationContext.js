@@ -17,7 +17,7 @@ const AppContextProvider = ({ children }) => {
     const userData = cookies.userData || null;
     return userData;
   };
-
+//remove the user data from the cookies
   const logout = () => {
     removeCookie("userData", { path: "/" });
   };

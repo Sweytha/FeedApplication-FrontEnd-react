@@ -10,7 +10,7 @@ import { AppContext } from "../../context/applicationContext";
 const FormItem = Form.Item;
 
 const LoginForm = () => {
-  const appContext = useContext(AppContext);
+  const appContext = useContext(AppContext);//namespacing using the useContext hook
 
   const onFinish = async (values) => {
     const apiResponse = await loginApi(values.username, values.password);
@@ -21,10 +21,10 @@ const LoginForm = () => {
         username: apiResponse.userID.username,
         name: apiResponse.userID.name,
       };
-      appContext.setSession(tokenData);
-      toast("Login successful.");
+      appContext.setSession(tokenData); //save the session data into your cookies 
+      toast("Login successful."); //quick alert that the login is successfull
     } else {
-      toast("Invalid username or password.");
+      toast("Invalid username or password."); 
     }
   };
 
