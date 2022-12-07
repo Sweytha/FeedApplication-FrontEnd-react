@@ -1,10 +1,13 @@
 import React from "react";
 import { useCookies } from "react-cookie";
 
+
+
 const AppContext = React.createContext();
 
 const AppContextProvider = ({ children }) => {
   const [cookies, setCookie, removeCookie] = useCookies(["userData"]);
+
 
   const setSession = (userData) => {
     setCookie("userData", userData, {
@@ -27,7 +30,7 @@ const AppContextProvider = ({ children }) => {
       value={{
         setSession,
         getSession,
-        logout,
+        logout
       }}
     >
       {children}

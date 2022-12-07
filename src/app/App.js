@@ -14,15 +14,15 @@ import { AppContext } from "../context/applicationContext";
 const { Content } = Layout;
 
 const App = () => {
-  const appContext = useContext(AppContext);
-  const userData = appContext.getSession();
+  const appContext = useContext(AppContext);// namespacing of the AppContext using the useContext hook
+  const userData = appContext.getSession(); // this gets the tokenData(token,username,name) from the cookies and stores it in userData
 
   const [currentUser, setCurrentUser] = useState(null);
   const [isAuthenticated, setIsAuthenticated] = useState(null);
 
   useEffect(() => {
     if (userData) {
-      setCurrentUser(userData);
+      setCurrentUser(userData); //this setCurrentUser function which will set the userData to currentUser state
       setIsAuthenticated(true);
     } else {
       setIsAuthenticated(false);

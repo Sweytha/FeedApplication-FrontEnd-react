@@ -28,9 +28,9 @@ const MyFeeds = ({ currentUser }) => {
           postObj.postImageUrl = imageMetaData[0].imageName;
           postObj.postDate = imageMetaData[0].imageDate;
         }
-        postsArr.push(postObj);
+        postsArr.push(postObj); //pushing the meaningful data to the array postsArr
       });
-      setPosts(postsArr);
+      setPosts(postsArr);// set the "posts state in line 12 to the postsArr which is having the post,postImageUrl and postDate"
     }
     setIsLoading(false);
   };

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState} from "react";
 import "./signup.css";
 import toast from "react-hot-toast";
 import { Form, Input, Button, Row, Col } from "antd";
@@ -14,6 +14,14 @@ import {
 } from "../../common/constants";
 
 import { signUpApi } from "../../util/ApiUtil";
+
+import {GoogleButton} from 'react-google-button';
+
+
+
+
+
+
 
 const FormItem = Form.Item;
 
@@ -123,6 +131,9 @@ const validatePassword = (password) => {
   }
 };
 
+
+
+
 const Signup = () => {
   let navigate = useNavigate();  //useNavigate hook which helps us to re-direct to the respective route
 
@@ -131,6 +142,9 @@ const Signup = () => {
   const [email, setEmail] = useState({ value: "" });
   const [password, setPassword] = useState({ value: "" });
 
+
+
+  
   const onFinish = async () => {
     const apiResponse = await signUpApi(
       username.value,
@@ -149,6 +163,8 @@ const Signup = () => {
       toast("Invalid sign up request. Username or email already exists.");
     }
   };
+
+
 
   const handleInputChange = (event, validationFun) => {
     const target = event.target;
@@ -272,6 +288,9 @@ const Signup = () => {
                   Signup
                 </Button>
               </FormItem>
+              <div className="max-w-[240px] m-auto py-4">
+                <GoogleButton />
+              </div>
             </Form>
           </Col>
         </Row>
