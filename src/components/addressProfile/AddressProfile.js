@@ -24,6 +24,7 @@ const AddressProfile = ({ currentUser }) => {
     loadAddressProfile();
   }, []);
 
+  //hit the getaddessApi and the first response of the array and picked and mapped to our fields
   const loadAddressProfile = async () => {
     const apiResponse = await getAddressApi(
       currentUser.token,
@@ -61,7 +62,7 @@ const AddressProfile = ({ currentUser }) => {
       setIsSubmit(false);
     }
   };
-
+//if this is true then display the loading indicator icone page(component)
   if (isLoading) {
     return <LoadingIndicator fullPage />;
   }

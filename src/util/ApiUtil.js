@@ -109,7 +109,7 @@ export const getBasicProfileApi = async (token, username) => {
       url,
 
       {
-        headers: { Authorization: frameToken(token) },
+        headers: { Authorization: frameToken(token) },//{Authorization : `Bearer ${token}`}
       }
     );
     if (apiResponse.status === 200) {
@@ -165,7 +165,8 @@ export const updateBasicProfileApi = async (
     return response;
   }
 };
-
+//get the address details from the DB 
+//call the getAddress API https://localhost:8080/user/address/username
 export const getAddressApi = async (token, username) => {
   let response = undefined;
   try {

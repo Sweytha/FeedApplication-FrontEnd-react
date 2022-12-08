@@ -32,8 +32,8 @@ const BasicProfile = ({ currentUser }) => {
 
   const loadBasicProfile = async () => {
     const apiResponse = await getBasicProfileApi(
-      currentUser.token,
-      currentUser.username
+      currentUser.token,//this is from cookies 
+      currentUser.username//this is from cookies 
     );
     if (apiResponse) {
       setPosition(apiResponse.position);
@@ -56,10 +56,10 @@ const BasicProfile = ({ currentUser }) => {
       //We are not passing name and email to the api. 
       //This is a stretch goal you have to implement in the project which will update name and email as well.
       const apiResponse = await updateBasicProfileApi(
-        currentUser.token,
+        currentUser.token,//this is from the cookies
         values.position,
         values.company,
-        currentUser.username,
+        currentUser.username,//this is from the cookies
         values.skills,
         values.certification,
         values.companyAddress,
